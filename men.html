@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Men's Collection</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Watchit</h1>
+        </div>
+        <nav class="navigation">
+            <a href="index.html">Home</a>
+            <a href="men.html" class="active-link">For Men</a>
+            <a href="women.html">For Women</a>
+            <a href="aboutus.html">About Us</a>
+            <a href="Cart.html">Cart</a>
+        </nav>
+        <div class="signin">
+            <button id="signin-btn" onclick="openModal('login')">Sign In</button>
+        </div>
+    </header>
+
+    <div class="main_heading">
+        <h4>Men's Collection</h4>
+    </div>
+
+    <div class="product-catalog">
+        <!-- Product 1 -->
+        <div class="product-box">
+            <div class="product-wrapper">
+                <img src="img1.jpg" alt="Black Chronograph" class="product-image">
+                <div class="product-info">
+                    <div class="product-name">Black Chronograph</div>
+                    <div class="product-price">PKR 14,999</div>
+                    <form action="Cart.html" method="get">
+                        <input type="hidden" name="productId" value="M80001">
+                        <input type="hidden" name="Name" value="Black Chronograph">
+                        <input type="hidden" name="price" value="PKR 14,999">
+                        <input type="hidden" name="imageUrl" value="img1.jpg">
+                        <input type="number" name="quantity" value="1" class="quantity-input" min="1">
+                        <button type="submit" class="btn cart">Add to Cart</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-box">
+            <div class="product-wrapper">
+                <img src="img2.jpeg" alt="Classic Blue Dial" class="product-image">
+                <div class="product-info">
+                    <div class="product-name">Classic Blue Dial</div>
+                    <div class="product-price">PKR 13,499</div>
+                    <form action="Cart.html" method="get">
+                        <input type="hidden" name="productId" value="M80002">
+                        <input type="hidden" name="Name" value="Classic Blue Dial">
+                        <input type="hidden" name="price" value="PKR 13,499">
+                        <input type="hidden" name="imageUrl" value="img2.jpeg">
+                        <input type="number" name="quantity" value="1" class="quantity-input" min="1">
+                        <button type="submit" class="btn cart">Add to Cart</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-box">
+            <div class="product-wrapper">
+                <img src="img3.jpeg" alt="Golden Mesh Strap" class="product-image">
+                <div class="product-info">
+                    <div class="product-name">Golden Mesh Strap</div>
+                    <div class="product-price">PKR 8,999</div>
+                    <form action="Cart.html" method="get">
+                        <input type="hidden" name="productId" value="M80003">
+                        <input type="hidden" name="Name" value="Golden Mesh Strap">
+                        <input type="hidden" name="price" value="PKR 8,999">
+                        <input type="hidden" name="imageUrl" value="img3.jpeg">
+                        <input type="number" name="quantity" value="1" class="quantity-input" min="1">
+                        <button type="submit" class="btn cart">Add to Cart</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product-box">
+            <div class="product-wrapper">
+                <img src="img4.jpeg" alt="Luxury Silver Dial" class="product-image">
+                <div class="product-info">
+                    <div class="product-name">Luxury Silver Dial</div>
+                    <div class="product-price">PKR 7,499</div>
+                    <form action="Cart.html" method="get">
+                        <input type="hidden" name="productId" value="M80004">
+                        <input type="hidden" name="Name" value="Luxury Silver Dial">
+                        <input type="hidden" name="price" value="PKR 7,499">
+                        <input type="hidden" name="imageUrl" value="img4.jpeg">
+                        <input type="number" name="quantity" value="1" class="quantity-input" min="1">
+                        <button type="submit" class="btn cart">Add to Cart</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 5 -->
+        <div class="product-box">
+            <div class="product-wrapper">
+                <img src="img5.jpeg" alt="Golden Classic" class="product-image">
+                <div class="product-info">
+                    <div class="product-name">Golden Classic</div>
+                    <div class="product-price">PKR 14,999</div>
+                    <form action="Cart.html" method="get">
+                        <input type="hidden" name="productId" value="M80005">
+                        <input type="hidden" name="Name" value="Golden Classic">
+                        <input type="hidden" name="price" value="PKR 14,999">
+                        <input type="hidden" name="imageUrl" value="img5.jpeg">
+                        <input type="number" name="quantity" value="1" class="quantity-input" min="1">
+                        <button type="submit" class="btn cart">Add to Cart</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Product Popup -->
+    <div id="product-popup" class="product-popup">
+        <div class="popup-content">
+            <button class="close-popup" onclick="closePopup()">&times;</button>
+            <div class="popup-left">
+                <img id="popup-image" src="" alt="Product Image">
+            </div>
+            <div class="popup-right">
+                <h2 id="popup-name"></h2>
+                <p id="popup-price"><span class="popup-label">Price:</span></p>
+                <p id="popup-summary"><span class="popup-label">Summary:</span></p>
+                <p id="popup-reviews"><span class="popup-label">Discount:</span></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openPopup(imageUrl, name, price, summary, discount) {
+            document.getElementById('popup-image').src = imageUrl;
+            document.getElementById('popup-name').textContent = name;
+            document.getElementById('popup-price').textContent = "Price: " + price;
+            document.getElementById('popup-summary').textContent = "Summary: " + summary;
+            document.getElementById('popup-reviews').textContent = "Discount: " + discount;
+            document.getElementById('product-popup').style.display = 'block';
+        }
+
+        function closePopup() {
+            document.getElementById('product-popup').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watchit-HOME</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Positioning for the FAQ button */
+        .faq-button {
+            position: fixed;
+            bottom: 70px;
+            right: 20px;
+            background-color: #d8570d;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 14px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            z-index: 1000;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        /* Hover effect for FAQ button */
+        .faq-button:hover {
+            background-color: #ac4509;
+            transform: scale(1.1);
+        }
+
+        /* Flex row alignment for FAQ and View More button */
+        .view-more-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header section -->
+    <header>
+        <div class="logo">
+            <h1>Watchit</h1>
+        </div>
+        <nav class="navigation">
+            <a href="index.html" class="active-link">Home</a>
+            <a href="men.html">For Men</a>
+            <a href="women.html">For Women</a>
+            <a href="aboutus.html">About Us</a>
+            <a href="Cart.html">Cart</a>
+        </nav>
+        <div class="signin">
+            <button  id="signin-btn" onclick="openModal('login')">Sign In</button>
+        </div>
+    </header>
+
+    <!-- Text Section -->
+    <div class="text-section" id="text-section">
+        <div class="text-container">
+            <h1>Your <em>Watch</em>, Your Statement</h1>
+            <h1>Show the World, Who You Are!</h1>
+            <pre>At Watchit, We make sure to match your style<br>with timeless elegance.</pre>
+            <a href="men.html" class="View-more-main">
+                <button class="View-more-main">View More</button>
+            </a>
+        </div>
+    </div>   
+
+    <a href="FAQ.html" class="faq-button">FAQ</a>
+
+    <footer>
+        <p>&copy; 2024 Watch Store. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get("loginSuccess") === "true") {
+                alert("Signed in successfully!");
+                window.history.replaceState({}, document.title, window.location.pathname);
+            } else if (urlParams.get("loginSuccess") === "false") {
+                alert("User not found. Please sign up for a new account.");
+                window.history.replaceState({}, document.title, window.location.pathname);
+            }
+        });
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>
